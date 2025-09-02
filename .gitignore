@@ -1,53 +1,15 @@
-# Archivos de compilación
-build/
-cmake-build-*/
-*.o
-*.a
-*.so
-*.exe
+# Build directories
+build
 
-# Archivos generados por protobuf/gRPC
-*.pb.h
+# Generated protobuf files
 *.pb.cc
-*.grpc.pb.h
+*.pb.h
 *.grpc.pb.cc
+*.grpc.pb.h
 
-# Archivos de CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-*.cmake
+# IDE files
+.vscode/settings.json
+.vscode/launch.json
 
-# Archivos de IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-*.log
-
-# Archivos temporales
-*.tmp
-*.temp
-*.bak
-
-# Archivos de Docker (opcionales)
-# Dockerfile
-# docker-compose.yml
-
-# Archivos de headers copiados (si usaste la solución 3)
-include/
-
-# Archivos de configuración local
-.env
-.env.local
-
-# Directorios de dependencias (si instalas librerías manualmente)
-third_party/
-external/
-deps/
+# Docker
+.dockerignore
