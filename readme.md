@@ -1,8 +1,9 @@
 # Taller RMI/gRPC 
 
 ## Integrantes
-- [link](Salomon Avila)
-- [link](Jorge Olaya)
-- [link](Camila Montealegre)
+
+- [Salomon Avila](link)
+- [Jorge Olaya](link)
+- [Camila Montealegre](link)
 
 ## Instalacion
