@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package suma;
+
+service Suma {
+  rpc CalcularSuma (SumaRequest) returns (SumaReply);
+  rpc CalcularSumaStream (SumaRequest) returns (stream SumaReply);
+}
+
+message SumaRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message SumaReply {
+  int32 resultado = 1;
+}
