@@ -651,6 +651,7 @@ class ConsultaResponse PROTOBUF_FINAL :
   enum : int {
     kEstadoFieldNumber = 1,
     kDisponiblesFieldNumber = 2,
+    kIndiceFieldNumber = 3,
   };
   // bool estado = 1;
   void clear_estado();
@@ -670,6 +671,15 @@ class ConsultaResponse PROTOBUF_FINAL :
   void _internal_set_disponibles(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // int32 indice = 3;
+  void clear_indice();
+  ::PROTOBUF_NAMESPACE_ID::int32 indice() const;
+  void set_indice(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_indice() const;
+  void _internal_set_indice(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:biblio.ConsultaResponse)
  private:
   class _Internal;
@@ -679,6 +689,7 @@ class ConsultaResponse PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   bool estado_;
   ::PROTOBUF_NAMESPACE_ID::int32 disponibles_;
+  ::PROTOBUF_NAMESPACE_ID::int32 indice_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_biblio_2eproto;
 };
@@ -1082,6 +1093,26 @@ inline void ConsultaResponse::_internal_set_disponibles(::PROTOBUF_NAMESPACE_ID:
 inline void ConsultaResponse::set_disponibles(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_disponibles(value);
   // @@protoc_insertion_point(field_set:biblio.ConsultaResponse.disponibles)
+}
+
+// int32 indice = 3;
+inline void ConsultaResponse::clear_indice() {
+  indice_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ConsultaResponse::_internal_indice() const {
+  return indice_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ConsultaResponse::indice() const {
+  // @@protoc_insertion_point(field_get:biblio.ConsultaResponse.indice)
+  return _internal_indice();
+}
+inline void ConsultaResponse::_internal_set_indice(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  indice_ = value;
+}
+inline void ConsultaResponse::set_indice(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_indice(value);
+  // @@protoc_insertion_point(field_set:biblio.ConsultaResponse.indice)
 }
 
 // -------------------------------------------------------------------

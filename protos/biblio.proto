@@ -25,6 +25,7 @@ message PrestamoResponse{
 message ConsultaResponse{
   bool estado = 1;
   int32 disponibles = 2;
+  int32 indice = 3;
 }
 
 message DevolucionResponse{

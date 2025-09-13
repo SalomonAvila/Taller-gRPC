@@ -137,6 +137,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_biblio_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::biblio::ConsultaResponse, estado_),
   PROTOBUF_FIELD_OFFSET(::biblio::ConsultaResponse, disponibles_),
+  PROTOBUF_FIELD_OFFSET(::biblio::ConsultaResponse, indice_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::biblio::DevolucionResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -149,7 +150,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::biblio::TituloRequest)},
   { 12, -1, sizeof(::biblio::PrestamoResponse)},
   { 19, -1, sizeof(::biblio::ConsultaResponse)},
-  { 26, -1, sizeof(::biblio::DevolucionResponse)},
+  { 27, -1, sizeof(::biblio::DevolucionResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -164,16 +165,17 @@ const char descriptor_table_protodef_biblio_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "\n\014biblio.proto\022\006biblio\"\033\n\013IsbnRequest\022\014\n"
   "\004ISBN\030\001 \001(\005\"\037\n\rTituloRequest\022\016\n\006titulo\030\001"
   " \001(\t\"1\n\020PrestamoResponse\022\016\n\006estado\030\001 \001(\010"
-  "\022\r\n\005fecha\030\002 \001(\t\"7\n\020ConsultaResponse\022\016\n\006e"
-  "stado\030\001 \001(\010\022\023\n\013disponibles\030\002 \001(\005\"$\n\022Devo"
-  "lucionResponse\022\016\n\006estado\030\001 \001(\0102\220\002\n\nBibli"
-  "oteca\022=\n\014PrestamoISBN\022\023.biblio.IsbnReque"
-  "st\032\030.biblio.PrestamoResponse\022A\n\016Prestamo"
-  "Titulo\022\025.biblio.TituloRequest\032\030.biblio.P"
-  "restamoResponse\022=\n\014ConsultaISBN\022\023.biblio"
-  ".IsbnRequest\032\030.biblio.ConsultaResponse\022A"
-  "\n\016DevolucionISBN\022\023.biblio.IsbnRequest\032\032."
-  "biblio.DevolucionResponseb\006proto3"
+  "\022\r\n\005fecha\030\002 \001(\t\"G\n\020ConsultaResponse\022\016\n\006e"
+  "stado\030\001 \001(\010\022\023\n\013disponibles\030\002 \001(\005\022\016\n\006indi"
+  "ce\030\003 \001(\005\"$\n\022DevolucionResponse\022\016\n\006estado"
+  "\030\001 \001(\0102\220\002\n\nBiblioteca\022=\n\014PrestamoISBN\022\023."
+  "biblio.IsbnRequest\032\030.biblio.PrestamoResp"
+  "onse\022A\n\016PrestamoTitulo\022\025.biblio.TituloRe"
+  "quest\032\030.biblio.PrestamoResponse\022=\n\014Consu"
+  "ltaISBN\022\023.biblio.IsbnRequest\032\030.biblio.Co"
+  "nsultaResponse\022A\n\016DevolucionISBN\022\023.bibli"
+  "o.IsbnRequest\032\032.biblio.DevolucionRespons"
+  "eb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_biblio_2eproto_deps[1] = {
 };
@@ -186,7 +188,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bib
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_biblio_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_biblio_2eproto = {
-  false, false, descriptor_table_protodef_biblio_2eproto, "biblio.proto", 513,
+  false, false, descriptor_table_protodef_biblio_2eproto, "biblio.proto", 529,
   &descriptor_table_biblio_2eproto_once, descriptor_table_biblio_2eproto_sccs, descriptor_table_biblio_2eproto_deps, 5, 0,
   schemas, file_default_instances, TableStruct_biblio_2eproto::offsets,
   file_level_metadata_biblio_2eproto, 5, file_level_enum_descriptors_biblio_2eproto, file_level_service_descriptors_biblio_2eproto,
@@ -854,15 +856,15 @@ ConsultaResponse::ConsultaResponse(const ConsultaResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&estado_, &from.estado_,
-    static_cast<size_t>(reinterpret_cast<char*>(&disponibles_) -
-    reinterpret_cast<char*>(&estado_)) + sizeof(disponibles_));
+    static_cast<size_t>(reinterpret_cast<char*>(&indice_) -
+    reinterpret_cast<char*>(&estado_)) + sizeof(indice_));
   // @@protoc_insertion_point(copy_constructor:biblio.ConsultaResponse)
 }
 
 void ConsultaResponse::SharedCtor() {
   ::memset(&estado_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&disponibles_) -
-      reinterpret_cast<char*>(&estado_)) + sizeof(disponibles_));
+      reinterpret_cast<char*>(&indice_) -
+      reinterpret_cast<char*>(&estado_)) + sizeof(indice_));
 }
 
 ConsultaResponse::~ConsultaResponse() {
@@ -897,8 +899,8 @@ void ConsultaResponse::Clear() {
   (void) cached_has_bits;
 
   ::memset(&estado_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&disponibles_) -
-      reinterpret_cast<char*>(&estado_)) + sizeof(disponibles_));
+      reinterpret_cast<char*>(&indice_) -
+      reinterpret_cast<char*>(&estado_)) + sizeof(indice_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -921,6 +923,13 @@ const char* ConsultaResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           disponibles_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 indice = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          indice_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -964,6 +973,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_disponibles(), target);
   }
 
+  // int32 indice = 3;
+  if (this->indice() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_indice(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -990,6 +1005,13 @@ size_t ConsultaResponse::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_disponibles());
+  }
+
+  // int32 indice = 3;
+  if (this->indice() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_indice());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1029,6 +1051,9 @@ void ConsultaResponse::MergeFrom(const ConsultaResponse& from) {
   if (from.disponibles() != 0) {
     _internal_set_disponibles(from._internal_disponibles());
   }
+  if (from.indice() != 0) {
+    _internal_set_indice(from._internal_indice());
+  }
 }
 
 void ConsultaResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1053,8 +1078,8 @@ void ConsultaResponse::InternalSwap(ConsultaResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ConsultaResponse, disponibles_)
-      + sizeof(ConsultaResponse::disponibles_)
+      PROTOBUF_FIELD_OFFSET(ConsultaResponse, indice_)
+      + sizeof(ConsultaResponse::indice_)
       - PROTOBUF_FIELD_OFFSET(ConsultaResponse, estado_)>(
           reinterpret_cast<char*>(&estado_),
           reinterpret_cast<char*>(&other->estado_));

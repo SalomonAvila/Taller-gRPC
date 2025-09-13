@@ -1,25 +1,99 @@
-Nombre: Libro1
-ISBN: 123456
-Existencias: 4
-Prestados: 1
-
-Nombre: Libro2
-ISBN: 654321
-Existencias: 2
-Prestados: 0
-
-Nombre: Libro3
-ISBN: 112233
-Existencias: 5
-Prestados: 2
-
-Nombre: Libro4
-ISBN: 445566
-Existencias: 3
-Prestados: 1
-
-Nombre: Libro5
-ISBN: 778899
-Existencias: 6
-Prestados: 4
-
+CienAnios 123456 5 0
+Rayuela 234567 4 1
+1984 345678 6 3
+Fahrenheit 456789 3 1
+Odisea 567890 7 2
+Iliada 678901 4 0
+Quijote 789012 5 1
+Hamlet 890123 3 3
+Macbeth 901234 6 2
+Inferno 112233 4 1
+DivinaComedia 223344 5 2
+Utopia 334455 3 0
+CrimenCastigo 445566 7 3
+AnnaKarenina 556677 4 1
+MadameBovary 667788 6 2
+Metamorfosis 778899 5 1
+DonJuan 889900 3 1
+Siddhartha 990011 4 2
+Zaratustra 101112 6 3
+EnBuscaSentido 121314 3 0
+EnsayoCeguera 131415 5 1
+PedroParamo 141516 2 0
+LaTregua 151617 4 2
+Niebla 161718 3 1
+Soledad 171819 6 2
+RojoNegro 181920 5 1
+ElExtranjero 192021 3 1
+OrgulloPrejuicio 202122 4 0
+Mujercitas 212223 6 2
+Dracula 222324 5 2
+Frankenstein 232425 4 1
+JaneEyre 242526 5 1
+Lolita 252627 3 1
+RetratoArtista 262728 2 0
+Ulises 272829 6 3
+DorianGray 282930 4 2
+GuerraPaz 292931 7 3
+LosMiserables 303132 6 2
+Hobbit 313233 5 1
+Silmarillion 323334 4 2
+SenorAnillos 333435 7 3
+HungerGames 343536 6 2
+MazeRunner 353637 5 1
+Divergente 363738 4 1
+It 373839 6 3
+CementerioAnimales 383940 3 1
+Resplandor 393941 5 2
+Carrie 404142 4 1
+Misery 414243 3 0
+DoctorSueno 424344 4 1
+Revival 434445 2 0
+ElVisitante 444546 3 1
+BellasDurmientes 454647 5 2
+CuentoCriada 464748 4 2
+AliasGrace 474849 3 1
+TestamentoMaria 484850 2 0
+MatarRuiseñor 494951 5 2
+HaciaRutaSalvaje 505152 4 1
+Walden 515253 3 1
+Leviatan 525354 6 3
+ContratoSocial 535455 4 1
+ElPrincipe 545556 3 1
+Republica 555657 6 3
+EticaNicomaquea 565758 2 0
+CriticaPura 575859 4 1
+SerTiempo 585960 3 1
+Anticristo 595961 2 0
+GenealogiaMoral 606162 3 1
+DialogosPlaton 616263 4 2
+Poetica 626364 2 0
+Retorica 636465 3 1
+SerNada 646566 2 0
+Fenomenologia 656667 3 1
+Capital 666768 4 2
+Manifiesto 676869 3 1
+CaminoServidumbre 686970 2 0
+RiquezaNaciones 697071 3 1
+Estado 707172 2 0
+Contratos 717273 3 1
+ElProceso 727374 4 2
+Castillo 737475 3 1
+AmericaKafka 747576 2 0
+Solaris 757677 3 1
+PicnicBorde 767778 2 0
+Neuromante 777879 4 2
+SnowCrash 787980 3 1
+Fundacion 798081 5 2
+ImperioRobot 808182 4 2
+YoRobot 818283 3 1
+Criptonomicon 828384 2 0
+Anathem 838485 3 1
+Dune 848586 5 2
+MesiasDune 858687 4 2
+NiñosDune 868788 3 1
+HerejesDune 878889 2 0
+CasaHarkonnen 888990 3 1
+Hyperion 899091 4 2
+Endymion 909192 3 1
+PuertasAbadon 919293 2 0
