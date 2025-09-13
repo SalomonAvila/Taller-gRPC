@@ -1,0 +1,25 @@
+Nombre: Libro1
+ISBN: 123456
+Existencias: 4
+Prestados: 1
+
+Nombre: Libro2
+ISBN: 654321
+Existencias: 2
+Prestados: 0
+
+Nombre: Libro3
+ISBN: 112233
+Existencias: 5
+Prestados: 2
+
+Nombre: Libro4
+ISBN: 445566
+Existencias: 3
+Prestados: 1
+
+Nombre: Libro5
+ISBN: 778899
+Existencias: 6
+Prestados: 4
+

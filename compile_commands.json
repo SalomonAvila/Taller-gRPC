@@ -1,8 +1,0 @@
-
-[
-{
-    "directory": "/home/mich/app",
-    "command": "/usr/bin/c++ -std=c++17 -I/usr/include -I/usr/include/grpc -I/usr/include/grpc++ src/server.cc -lgrpc++ -lgrpc -lprotobuf",
-    "file": "/home/mich/app/src/server.cc"
-}
-]

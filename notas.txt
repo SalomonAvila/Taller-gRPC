@@ -1,24 +1,15 @@
-#Construir el contenedor
-docker build -t mi-grpc-app .
+Paso a Paso
+Como estaba en mi linux las instrucciones tienen comandos de linux
 
-#Correr el contenedor
-docker run -it -v $(pwd):/app mi-grpc-app bash
-cd /app && mkdir -p build && cd build
-cmake .. && make
+1. Instalar todo
+sudo apt update
+sudo apt install -y build-essential cmake pkg-config \
+autoconf automake libtool git
+sudo apt install -y libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc protobuf-compiler
 
-#Compilación de los archivos proto
-cd /app
-protoc --grpc_out=src --cpp_out=src -I protos --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` protos/suma.proto
+2. Compilar el proto
+protoc -I=protos --grpc_out=protos --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` protos/biblio.proto
+protoc -I=protos --cpp_out=protos protos/biblio.proto
 
-#Con esto ya compilan todo
-cd build
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
-make
-
-
-Extensiones para que le metan a VsCode si lo van a usar como su IDE
-https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3
- -> Autocompletado de extension .proto
-
-https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
- -> Pack para poder trabajar en C/C++ con intellisense
+3. Compilar todo
+mkdir -p build && cd build && cmake .. && make

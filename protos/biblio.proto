@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package biblio;
+
+service Biblioteca {
+  rpc PrestamoISBN (IsbnRequest) returns (PrestamoResponse);
+  rpc PrestamoTitulo (TituloRequest) returns (PrestamoResponse);
+  rpc ConsultaISBN (IsbnRequest) returns (ConsultaResponse);
+  rpc DevolucionISBN (IsbnRequest) returns (DevolucionResponse);
+}
+
+message IsbnRequest{
+  int32 ISBN = 1;
+}
+
+message TituloRequest{
+  string titulo = 1;
+}
+
+message PrestamoResponse{
+  bool estado = 1;
+  string fecha = 2;
+}
+
+message ConsultaResponse{
+  bool estado = 1;
+  int32 disponibles = 2;
+}
+
+message DevolucionResponse{
+  bool estado = 1;
+}
