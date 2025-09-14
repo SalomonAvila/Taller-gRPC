@@ -28,7 +28,7 @@ En una terminal:
 ```bash
 ./server
 ```
-El servidor escucha por defecto en `0.0.0.0:50051`.
+El servidor escucha en la direccion `10.43.101.228:50051`.
 
 ---
 
@@ -36,13 +36,4 @@ El servidor escucha por defecto en `0.0.0.0:50051`.
 En otra terminal:
 ```bash
 ./client
-```
-
-Si el servidor está en otra máquina o puerto:
-```bash
-./client <host>:<puerto>
-```
-Ejemplo:
-```bash
-./client 192.168.1.50:50051
 ```
