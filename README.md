@@ -9,7 +9,13 @@ sudo apt install -y libgrpc++-dev libprotobuf-dev protobuf-compiler protobuf-com
 ```
 ---
 
-## 2️. Compilar el proyecto
+## 2. Compilar proto (Linux)
+```bash
+protoc -I=protos --grpc_out=protos --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` protos/biblio.proto
+protoc -I=protos --cpp_out=protos protos/biblio.proto
+```
+
+## 3. Compilar el proyecto
 ```bash
 mkdir -p build
 cd build
@@ -17,13 +23,13 @@ cmake ..
 make -j
 ```
 
-Se generan dos ejecutables:
+Se generan dos ejecutables dentro de la carpeta build:
 - `./server`
 - `./client`
 
 ---
 
-## 3️. Ejecutar el servidor
+## 4. Ejecutar el servidor
 En una terminal:
 ```bash
 ./server
