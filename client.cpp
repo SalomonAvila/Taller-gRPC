@@ -4,6 +4,7 @@
 #include <grpcpp/grpcpp.h>
 #include "protos/biblio.grpc.pb.h"
 
+// Importa elementos definidos en el archivo .proto
 using biblio::Biblioteca;
 using biblio::ConsultaResponse;
 using biblio::DevolucionResponse;
@@ -14,24 +15,28 @@ using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 
+// Clase que representa al cliente de la biblioteca, contiene métodos para pedir préstamos, devolver libros y consultar disponibilidad usando gRPC.
 class BiliotecaCliente
 {
 public:
+// Constructor que recibe un canal gRPC y construye el "stub" para comunicarse con el servidor
   BiliotecaCliente(std::shared_ptr<Channel> channel)
       : stub_(Biblioteca::NewStub(channel)) {}
 
+  // Solicita un préstamo de libro mediante ISBN.
+  // Retorna un mensaje con el resultado del préstamo
   std::string PrestamoISBN(const std::int32_t ISBN)
   {
-    IsbnRequest request;
-    request.set_isbn(ISBN);
+    IsbnRequest request; // Crea el request
+    request.set_isbn(ISBN); // Asigna el ISBN al request
 
-    PrestamoResponse response;
-    ClientContext context;
+    PrestamoResponse response; // Respuesta
+    ClientContext context; // Contexto del cliente
 
     Status status = stub_->PrestamoISBN(&context, request, &response);
-    if (status.ok())
+    if (status.ok()) // Si la comunicación fue exitosa
     {
-      if (response.estado())
+      if (response.estado()) // Si el préstamo fue aprobado
       {
         return "Prestado y con fecha de devolucion el " + response.fecha();
       }
@@ -46,12 +51,14 @@ public:
     }
   }
 
+  // Solicita un préstamo de libro mediante título
+  // Retorna un mensaje con el resultado del préstamo
   std::string PrestamoTitulo(const std::string tituloLibro)
   {
-    TituloRequest request;
-    request.set_titulo(tituloLibro);
-    PrestamoResponse response;
-    ClientContext context;
+    TituloRequest request; // Crea el request
+    request.set_titulo(tituloLibro); // Asigna el título al request
+    PrestamoResponse response; // Respuesta
+    ClientContext context; // Contexto del cliente
 
     Status status = stub_->PrestamoTitulo(&context, request, &response);
     if (status.ok())
@@ -71,17 +78,20 @@ public:
     }
   }
 
+  // Consulta la disponibilidad de un libro mediante ISBN
+  // Retorna un mensaje con el estado y cantidad de ejemplares disponibles
   std::string ConsultaISBN(const std::int32_t ISBN)
   {
-    IsbnRequest request;
-    request.set_isbn(ISBN);
+    IsbnRequest request; // Crea el request
+    request.set_isbn(ISBN); // Asigna el ISBN al request
 
-    ConsultaResponse response;
-    ClientContext context;
+    ConsultaResponse response; // Respuesta
+    ClientContext context; // Contexto del cliente
 
     Status status = stub_->ConsultaISBN(&context, request, &response);
     if (status.ok())
     { 
+      // Si el libro existe y hay ejemplares disponibles
       if (response.estado() && (response.disponibles() > 0))
       {
         std::string mensaje = "Existe con ";
@@ -100,6 +110,8 @@ public:
     }
   }
 
+  // Devuelve un libro mediante ISBN
+  // Retorna un mensaje con el resultado de la devolución
   std::string DevolucionISBN(const std::int32_t ISBN)
   {
     IsbnRequest request;
@@ -127,9 +139,11 @@ public:
   }
 
 private:
+  // Stub para comunicarse con el servidor gRPC
   std::unique_ptr<biblio::Biblioteca::Stub> stub_;
 };
 
+// Imprime el menú principal con las opciones para interactuar con el sistema de biblioteca
 void menu()
 {
   std::cout << "\n\n-------MENU--------------------------------\n\n";
@@ -142,12 +156,16 @@ void menu()
   std::cout << "Ingrese la opcion deseada: ";
 }
 
+// Función principal del programa cliente
+// Establece la conexión con el servidor y maneja el menú de opciones
 int main()
 {
+   // Crear cliente conectado al servidor gRPC
   BiliotecaCliente biblioteca(
       grpc::CreateChannel("10.43.101.228:50051", grpc::InsecureChannelCredentials()));
   int opc = -1;
   std::cout << "Bienvenido al servicio de biblioteca\n";
+  // Mantiene activo el menú hasta que el usuario salga
   while (true)
   {
     menu();
@@ -158,31 +176,31 @@ int main()
 
     switch (opc)
     {
-    case 1:
+    case 1: // Préstamo por ISBN
       std::cout << "Ingrese el isbn del libro que quiere pedir prestado: ";
       std::cin >> isbn;
       reply = biblioteca.PrestamoISBN(isbn);
       std::cout << reply << std::endl;
       break;
-    case 2:
+    case 2: // Préstamo por título
       std::cout << "Ingrese el titulo del libro que quiere pedir prestado: ";
       std::cin >> titulo;
       reply = biblioteca.PrestamoTitulo(titulo);
       std::cout << reply << std::endl;
       break;
-    case 3:
+    case 3: // Consulta por ISBN
       std::cout << "Ingrese el isbn del libro que quiere consultar: ";
       std::cin >> isbn;
       reply = biblioteca.ConsultaISBN(isbn);
       std::cout << reply << std::endl;
       break;
-    case 4:
+    case 4: // Devolución por ISBN
       std::cout << "Ingrese el isbn del libro que quiere devolver: ";
       std::cin >> isbn;
       reply = biblioteca.DevolucionISBN(isbn);
       std::cout << reply << std::endl;
       break;
-    case 0:
+    case 0: // Salir
       std::cout << "¡Gracias por usar el sistema de libros" << std::endl;
       exit(0);
       break;
