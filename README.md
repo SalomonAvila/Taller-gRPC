@@ -38,7 +38,7 @@ El servidor escucha en la direccion `10.43.101.228:50051`.
 
 ---
 
-## 4️. Ejecutar el cliente
+## 5. Ejecutar el cliente
 En otra terminal:
 ```bash
 ./client
