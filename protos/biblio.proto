@@ -2,32 +2,48 @@ syntax = "proto3";
 
 package biblio;
 
+// Servicio que expone operaciones de una pequeña biblioteca
 service Biblioteca {
+  // Pide préstamo de un libro por ISBN
   rpc PrestamoISBN (IsbnRequest) returns (PrestamoResponse);
+  // Pide préstamo de un libro por titulo
   rpc PrestamoTitulo (TituloRequest) returns (PrestamoResponse);
+  // Consulta existencia de un libro por ISBN
   rpc ConsultaISBN (IsbnRequest) returns (ConsultaResponse);
+  // Devuelve un libro por su ISBN
   rpc DevolucionISBN (IsbnRequest) returns (DevolucionResponse);
 }
 
+// Estructuras de datos usadas en las operaciones
 message IsbnRequest{
+  // ISBN del libro (int32 en este proyecto)
+  // El tipo int32 indica un número entero de 32 bits con signo
   int32 ISBN = 1;
 }
 
 message TituloRequest{
+  // Título del libro
+  // Los títulos no deben contener espacios
   string titulo = 1;
 }
 
 message PrestamoResponse{
+  // true si el préstamo fue exitoso
   bool estado = 1;
+  // fecha sugerida para la devolución
   string fecha = 2;
 }
 
 message ConsultaResponse{
+  // true si el libro existe
   bool estado = 1;
+  // cantidad disponible para prestamo
   int32 disponibles = 2;
+  // índice del libro en la lista interna
   int32 indice = 3;
 }
 
 message DevolucionResponse{
+  // true si la devolución fue procesada con éxito
   bool estado = 1;
 }
